@@ -2,3 +2,22 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+
+:root {
+  --background-image: url(../images/cover-image-dark.png);
+  --accent-color: #ff0070;
+  --primary-color: #db00ff;
+  --menu-color: #ff0070;
+  --menu-color-hover: rgb(255, 0, 112, 0.4);
+  --text-color: #f1b2ce;
+  --background-color: #000028;
+  --card-name-color: #ff0070;
+  --link-shadow-color: #ff0070;
+  --title-style-color: #000028;
+  --style-area-color: #ff0070;
+  --font-family: IBM Plex Mono, sans-serif;
+  --font-weight: 400;
+  --font-weight-accent: 700;
+  --padding-xs: 10px;
+  --padding-xl: 20px;
+}
