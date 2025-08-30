@@ -53,7 +53,7 @@
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  border: 1px solid var(--menu-color);
+  border: 1px solid currentColor;
 }
 
 .header__theme-menu-button:hover {
@@ -154,7 +154,7 @@
 }
 
 .link:focus-visible {
-  border: 1px solid var(--text-color);
+  border: 1px solid currentColor;
 }
 
 .card-image {
