@@ -18,7 +18,7 @@
   --menu-color-hover: rgb(53, 52, 48, 0.4);
   --card-name-color: #353430;
   --link-shadow-color: #FF8DCB;
-  --title-style-color: #353430;
+  --title-decor-color: #353430;
   --style-area-color: #353430;
 }
 
@@ -41,7 +41,7 @@
     --menu-color-hover: rgb(53, 52, 48, 0.4);
     --card-name-color: #353430;
     --link-shadow-color: #FF8DCB;
-    --title-style-color: #353430;
+    --title-decor-color: #353430;
     --style-area-color: #353430;
   }
 

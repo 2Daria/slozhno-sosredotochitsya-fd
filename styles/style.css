@@ -2,10 +2,10 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-attachment: fixed;
   background-image: var(--background-image);
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
   background-color: var(--background-color);
 }
 
@@ -52,8 +52,16 @@
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--menu-color);
   pointer-events: none;
+  border: 1px solid var(--menu-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--menu-color-hover);
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--menu-color);
 }
 
 .title-block {
@@ -70,7 +78,6 @@
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   text-shadow: 4px 4px 0 var(--accent-color);
   line-height: 83%;
-  word-break: normal;
 }
 
 .title-block-text {
@@ -81,16 +88,14 @@
   padding-bottom: 4%;
 }
 
-.title-style {
+.title-decor {
   display: block;
-  color: var(--title-style-color);
+  color: var(--title-decor-color);
   font-family: var(--font-family);
   font-weight: var(--font-weight-accent);
   font-size: 18px;
   line-height: 23.4px;
   background-color: var(--accent-color);
-  text-wrap: pretty;
-  -webkit-leading-trim: none;
 }
 
 .main {
@@ -112,19 +117,18 @@
   font-size: 18px;
   line-height: 23.4px;
   letter-spacing: 0;
-  -webkit-leading-trim: none;
 }
 
 .accent-card-title {
   padding-bottom: 20px;
 }
 
-.card-context {
+.card-content {
   display: grid;
   gap: 20px;
 }
 
-.card-text {
+.description {
   display: block;
   padding-top: 10px;
   color: var(--text-color);
@@ -134,7 +138,6 @@
   font-style: normal;
   line-height: 23.4px;
   letter-spacing: 0;
-  -webkit-leading-trim: none;
 }
 
 .link {
@@ -144,32 +147,44 @@
   text-shadow: 2px 1px var(--link-shadow-color);
 }
 
-.block-image {
-  display: grid;
-  gap: 10px;
+.link:hover {
+  border-bottom: 1px solid var(--text-color);
+  text-decoration-color: var(--text-color);
+  text-decoration-style: solid;
+}
+
+.link:focus-visible {
+  border: 1px solid var(--text-color);
 }
 
 .card-image {
-  display: grid;
-  grid-template-columns: repeat(auto, 1fr);
-  gap: 10px;
   box-sizing: border-box;
+  grid-template-columns: repeat(auto, 1fr);
+}
+
+.card-title {
+  display: block;
+  font-weight: var(--font-weight);
+}
+
+.block-image , .card-image {
+  display: grid;
+  gap: 10px;
 }
 
 .card-image-item img {
   display: block;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease;
   inline-size: 100%;
   block-size: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .footer {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   min-height: 668px;
   margin-top: 40px;
 }
@@ -186,23 +201,7 @@
 
 .style-area {
   position: relative;
-  padding: var(--padding-xs) var(--padding-xs);
-}
-
-.decorated-text {
-  position: absolute;
-  display: flex;
-  justify-self: end;
-  justify-content: start;
-  align-items: end;
-  width: calc(33px + 10px + 9px + 9px + var(--padding-xs));
-  padding-top: var(--padding-xs);
-  color: var(--accent-color);
-  font-family: var(--font-family);
-  font-weight: var(--font-weight);
-  font-size: 18px;
-  line-height: 25px;
-  text-align: center;
+  padding: 10px 10px;
 }
 
 .style-area::after {
@@ -212,11 +211,9 @@
   left: 0px;
   width: 25.035839080810547px;
   height: 25.001531600952237px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin: 0px 0px 10px 10px;
+  border: solid var(--style-area-color);
   border-width: 0px 0px 1px 1px;
-  border-style: solid;
-  border-color: var(--style-area-color);
 }
 
 .style-area::before {
@@ -226,11 +223,25 @@
   right: 0px;
   width: 25.035839080810547px;
   height: 25.001531600952237px;
-  margin-top: 10px;
-  margin-right: 10px;
+  margin: 10px 10px 0px 0px;
+  border: solid var(--style-area-color);
   border-width: 1px 1px 0px 0px;
-  border-style: solid;
-  border-color: var(--style-area-color);
+}
+
+.decorated-text {
+  font-size: 18px;
+  display: flex;
+  position: absolute;
+  width: calc(33px + 10px + 18px + var(--padding-xs));
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  justify-self: end;
+  justify-content: start;
+  padding-top: 10px;
+  color: var(--accent-color);
+  line-height: 25px;
+  text-align: center;
+  align-items: end;
 }
 
 .decorated-text::before {
@@ -238,34 +249,10 @@
   position: absolute;
   width: 9px;
   height: 9px;
-  margin-bottom: 9px;
-  border-radius: 50%;
   box-shadow: 0px 0px 4px 2px var(--accent-color);
   background-color: var(--accent-color);
-  margin-left: 43px;
-}
-
-.header__theme-menu-button:hover {
-  border: 1px solid var(--menu-color-hover);
-}
-
-.header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--menu-color);
-}
-
-.link:hover {
-  border-bottom: 1px solid var(--text-color);
-  text-decoration-color: var(--text-color);
-  text-decoration-style: solid;
-}
-
-.link:focus-visible {
-  border: 1px solid var(--text-color);
-}
-
-.card-title {
-  display: block;
-  font-weight: var(--font-weight);
+  margin: 0px 0px 9px 43px;
+  border-radius: 50%;
 }
 
 @media (width >= 768px) {
@@ -292,7 +279,7 @@
     width: 50%;
     height: 50%;
     margin-left: auto;
-    padding-bottom: 0;
+    padding-bottom: 0px;
   }
 
   .main {
@@ -312,20 +299,20 @@
     grid-column: 2;
   }
 
-  .card-context {
+  .block-image {
+    box-sizing: border-box;
+    gap: 20px;
+  }
+
+  .card-content {
     display: grid;
     gap: 20px;
   }
 
-  .block-image {
-    gap: 20px;
-    box-sizing: border-box;
-  }
-
   .card-image {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
     box-sizing: border-box;
+    gap: 20px;
   }
 
   .card-image-item:nth-child(1) {
@@ -361,13 +348,13 @@
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .style-area {
-    padding: 20px 20px;
-  }
-
   .decorated-text {
     width: calc(33px + 10px + 18px + var(--padding-xl));
     padding-top: var(--padding-xl);
+  }
+
+  .style-area {
+    padding: 20px 20px;
   }
 
   .style-area::after {
@@ -386,8 +373,8 @@
     justify-self: center;
     align-self: center;
     height: 100%;
-    margin-top: 0;
-    padding-top: 0;
+    margin-top: 0px;
+    padding-top: 0px;
   }
 
   .header__theme-menu-list {
@@ -419,13 +406,13 @@
     width: 33%;
   }
   
-  .card-context {
+  .card-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
   
-  .card-text {
+  .description {
     padding-bottom: 10px;
   }
   
